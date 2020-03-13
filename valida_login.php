@@ -1,6 +1,5 @@
-
 <?php
-require_once  'recursos/conexion.php';
+    require_once 'recursos/conexion.php';
 
   session_start();
    
