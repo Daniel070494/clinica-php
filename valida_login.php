@@ -7,20 +7,20 @@
   $usuario = $_POST['usuario'];
   $pass = $_POST['pass'];
 
+  $sql = "SELECT * FROM usuarios WHERE usuario='$usuario' AND password = '$pass'";
+      $result = mysqli_query($conexion,$sql);
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
    
-  // Consulta segura para evitar inyecciones SQL.
-  $sql = sprintf("SELECT * FROM usuarios WHERE usuario='$usuario' AND password = '$pass'");
-  $resultado = $conexion->query($sql);
- 
-  // Verificando si el usuario existe en la base de datos.
-  if($resultado){
-    // Guardo en la sesión el email del usuario.
-    $_SESSION['usuario'] = $usuario;
-     
-    // Redirecciono al usuario a la página principal del sitio.
-    header("Location: index.php"); 
-  }else{
-    echo 'El usuario o password es incorrecto, <a href="login.php">vuelva a intenarlo</a>.<br/>';
-  }
+      $count = mysqli_num_rows($result);
+      
+      // If result matched $myusername and $mypassword, table row must be 1 row
+		
+      if($count == 1) {
+         $_SESSION['usuario'] = $usuario;
+         
+         header("location: index.php");
+      }else {
+         echo 'El usuario o password es incorrecto, <a href="login.php">vuelva a intenarlo</a>.<br/>';
+      }
  
 ?>
