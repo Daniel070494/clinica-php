@@ -2,9 +2,24 @@
 
 session_start();
 
-$usuario = $_SESSION['usuario'];
+include 'includes/cabecera.php';
 
-echo "<h1>Hola!</h1>";
+if(isset($_SESSION['usuario'])){
+    
+    $usuario = $_SESSION['usuario'];
 
-echo "<p>Has iniciado sesion como <strong>".$usuario.".</strong></p>";
+    echo "<h1>Hola!</h1>";
 
+    echo "<p>Has iniciado sesion como <strong>".$usuario.".</strong></p>";
+    
+} else {
+    header("Location: login.php");
+}
+?>
+
+<form action='cerrar_sesion.php'>
+    <input type="submit" class="btn btn-danger" name="sesionDestroy" value="Cerrar Sesión"/>
+</form>
+
+        </body>
+</html>
