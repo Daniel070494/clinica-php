@@ -16,7 +16,7 @@
                                                 <?php
                                                   $query = mysqli_query($conexion, "SELECT id_roles, rol, descripcion FROM cat_roles");
                                                   while ($valores = mysqli_fetch_array($query)) {
-                                                    echo '<option value="'.$valores[id_roles].'">'.$valores[descripcion].'</option>';
+                                                    echo '<option value="'.$valores[id_roles].'">'.$valores[rol].' - '.$valores[descripcion].'</option>';
                                                   }
                                                 ?>
                                               </select>
