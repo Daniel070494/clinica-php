@@ -1,7 +1,7 @@
 <?php
 
   // Datos para conectar a la base de datos.
-  $servidor = "192.168.1.5";
+  $servidor = "localhost";
   $usuario = "root";
   $pwd_bd = "1234";
   $database = "clinica";
