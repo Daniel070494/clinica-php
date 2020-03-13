@@ -36,37 +36,44 @@
 	</header>
 	
 	<div style="margin-left: 500px; margin-top: 100px; margin-right: 500px;">
-	
+            
 		<div class="card border-info">
+                <form action="valida_login.php" method="POST">
       		<div class="card-header bg-info text-white">Inicio de Sesión</div>
                 <div class="card-body" style="background-color: #E0F8F1;">
 
     
 				<div class="col-md-12">
 					<label class="basic_label">Rol</label>
-                                        <select id="rol" class="form-control">
-                                            <option selected="selected" value="">Seleccionar...</option>
-                                            <option>Admin.</option>
-                                            <option>Médico</option>
-                                            <option>Paciente</option>
-                                        </select>
+                                              <select name="rol" class="form-control">
+                                                <option value="0">Seleccione:</option>
+                                                <?php include 'recursos/conexion.php';?>
+                                                
+                                                <?php
+                                                  $query = mysqli_query($conexion, "SELECT id_roles, rol, descripcion FROM cat_roles");
+                                                  while ($valores = mysqli_fetch_array($query)) {
+                                                    echo '<option value="'.$valores[id_roles].'">'.$valores[descripcion].'</option>';
+                                                  }
+                                                ?>
+                                              </select>
 				</div>
 				<div class="col-md-12">
 				<br>
 					<label class="basic_label">Usuario:</label>
-					<input class="form-control" id="usuario" type="text">	
+					<input class="form-control" name="usuario" id="usuario" type="text">	
 				</div>
 				<div class="col-md-12">
 				<br>
 					<label class="basic_label">Contraseña:</label>
-					<input class="form-control" id="pass" type="password">	
+					<input class="form-control" name="pass" id="pass" type="password">	
 				</div>
 				<div class="col-md-12">
 				<br>
-					<button type="button" class="btn btn-info">Acceder</button>
+                                        <input class="btn btn-info" type="submit" value="Acceder">
                                         <button type="button" class="btn btn-danger" onclick="limpiar();">Limpiar</button>
 				</div>
 			</div>
+                </form>
 		</div>
 		
 		<div id="respuesta"></div>
