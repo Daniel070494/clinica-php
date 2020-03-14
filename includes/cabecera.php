@@ -10,7 +10,7 @@
         <script src="js/login/login.js"></script>
         <link rel="stylesheet" href="css/bootstrap.min.css">
     </head>
-    <body style="background-color: #E0F8EC">
+    <body background="img/clinica.jpeg" >
         <header>
                         <nav class="navbar navbar-expand-sm bg-info navbar-dark">
 
