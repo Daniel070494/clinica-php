@@ -11,7 +11,7 @@
 				<div class="col-md-12">
 					<label class="basic_label">Rol</label>
                                         <select name="rol" class="form-control" required="required">
-                                                <option value="0">Seleccione:</option>
+                                                <option value="">Seleccionar...</option>
                                                                                               
                                                 <?php
                                                   $query = mysqli_query($conexion, "SELECT id_roles, rol, descripcion FROM cat_roles");
