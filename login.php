@@ -10,7 +10,7 @@
     
 				<div class="col-md-12">
 					<label class="basic_label">Rol</label>
-                                              <select name="rol" class="form-control">
+                                        <select name="rol" class="form-control" required="required">
                                                 <option value="0">Seleccione:</option>
                                                                                               
                                                 <?php
@@ -24,12 +24,12 @@
 				<div class="col-md-12">
 				<br>
 					<label class="basic_label">Usuario:</label>
-					<input class="form-control" name="usuario" id="usuario" type="text">	
+					<input class="form-control" name="usuario" id="usuario" type="text" required="required">	
 				</div>
 				<div class="col-md-12">
 				<br>
 					<label class="basic_label">Contraseña:</label>
-					<input class="form-control" name="pass" id="pass" type="password">	
+					<input class="form-control" name="pass" id="pass" type="password" required="required">	
 				</div>
 				<div class="col-md-12">
 				<br>
