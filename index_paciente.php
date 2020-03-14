@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -39,13 +40,22 @@ if(isset($_SESSION['usuario'])){
                 where u.user_n = $user_n";
         
 $resultado = mysqli_query($conexion,$sql);
+?>
+
+<div class="container py-4">
+	<div class="card bg-light">
+		<div class="card-header" th:text="${titulo}"></div>
+		<div class="card-body">
+
+<?php
 echo "
-	<table border = 1 cellspacing = 1 cellpadding = 1>
+	<table class='table table-striped'>
 		<tr>
 			<th>ID Paciente</th>
 			<th>Nombre</th>
 			<th>Apellidos</th>
 			<th>Edad</th>
+                        <th>Detalle</th>
 		</tr>";
 while($fila = mysqli_fetch_array($resultado)){
 	echo "
@@ -54,14 +64,19 @@ while($fila = mysqli_fetch_array($resultado)){
 			<td>".$fila['nombre']."</td>
 			<td>".$fila['a_paterno']."</td>
 			<td>".$fila['a_materno']."</td>
+                        <td><button class='btn btn-success'>Detalle</button></td>
 		</tr>";
 }
 echo "</table>";
 echo "<br/>";
 ?>
-<form action='cerrar_sesion.php'>
-    <input type="submit" class="btn btn-danger" name="sesionDestroy" value="Cerrar Sesión"/>
-</form>
-
+                   </div>
+	</div>
+</div>
+<div class="col-12 pull-right">
+    <form action='cerrar_sesion.php'>
+        <input type="submit" class="btn btn-danger" name="sesionDestroy" value="Cerrar Sesión"/>
+    </form>
+</div>
         </body>
 </html>
